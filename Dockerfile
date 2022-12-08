@@ -23,6 +23,7 @@ RUN apk add --no-cache $PHPIZE_DEPS \
     # =================================
     # pecl install xdebug; \
     # docker-php-ext-enable xdebug; \
+    # (!) Remove 'zend_extension=xdebug' once using pecl
     echo $'zend_extension=xdebug\nxdebug.mode=coverage' >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini; \
     pecl install imagick; \
     docker-php-ext-enable imagick; \
