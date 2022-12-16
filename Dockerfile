@@ -5,7 +5,7 @@ FROM php:8.2-alpine
 RUN apk add --no-cache $PHPIZE_DEPS \
 	imagemagick-dev icu-dev zlib-dev jpeg-dev libpng-dev libzip-dev libgomp linux-headers; \
     docker-php-ext-configure gd --with-jpeg; \
-	docker-php-ext-install intl pcntl gd exif zip; \
+	docker-php-ext-install intl pcntl gd exif zip mysqli pgsql pdo pdo_mysql pdo_pgsql bcmath opcache; \
     pecl install xdebug; \
     docker-php-ext-enable xdebug; \
     echo "xdebug.mode=coverage" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini; \
